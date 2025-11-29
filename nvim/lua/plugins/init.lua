@@ -20,7 +20,11 @@ require("lazy").setup({
     {
         "nvim-telescope/telescope.nvim",
         dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("plugins.telescope")
+        end,
     },
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
     -- Treesitter
     {
@@ -28,6 +32,41 @@ require("lazy").setup({
         build = ":TSUpdate",
     },
 
-    -- other
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    -- Nvim-Tree
+    {
+        "nvim-tree/nvim-tree.lua",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("plugins.nvimtree")
+        end,
+    },
+
+    -- UI Improvements
+    { 
+        "nvim-lualine/lualine.nvim",
+        config = function()
+            require("plugins.lualine")
+        end,
+    },
+
+    { "folke/which-key.nvim", config = true },
+
+    { 
+        "catppuccin/nvim",
+        name = "catppuccin",
+        lazy = false,
+        priority = 1000,
+        config = function()
+            require("catppuccin").setup({
+                flavour = "mocha",
+                transparent_background = true,
+                styles = {
+                    comments = { "italic" },
+                    conditionas = { "italic" },
+                },
+            })
+            vim.cmd.colorscheme("catppuccin")
+            vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
+        end,
+    },
 })
