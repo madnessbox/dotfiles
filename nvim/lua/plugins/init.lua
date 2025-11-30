@@ -50,6 +50,25 @@ require("lazy").setup({
       end,
     },
 
+    -- cmake tools
+    { 
+        "Civitasv/cmake-tools.nvim", 
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("cmake-tools").setup({
+                cmake_command = "cmake",
+                cmake_build_directory = "build",
+                cmake_build_type = "Debug",
+                cmake_generate_options = {
+                    "-G", "Ninja",
+                    "-D", "CMAKE_C_COMPILER=clang",
+                    "-D", "CMAKE_CXX_COMPILER=clang++",
+                    "-D", "CMAKE_EXPORT_COMPILE_COMMANDS=ON",
+                },
+            })
+        end,
+    },
+
     -- UI Improvements
     { 
         "nvim-lualine/lualine.nvim",
