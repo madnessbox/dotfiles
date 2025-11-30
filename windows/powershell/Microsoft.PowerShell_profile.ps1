@@ -63,11 +63,3 @@ function rm {
     
     Remove-Item @params
 }
-
-# Ensure the terminal font supports Icons
-$fontSupported = (Get-Command oh-my-posh).Module | Select-Object -ExpandProperty Version -ErrorAction SilentlyContinue
-if (-not $fontSupported)
-{
-  Write-Warning "Ensure your terminal font supports icons."
-}
-

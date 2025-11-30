@@ -1,47 +1,112 @@
 {
-  "$schema": "https://aka.ms/terminal-profiles-schema",
-  "copyFormatting": "none",
-  "copyOnSelect": false,
-  "launchMode": "focus",
-  "useAcrylicInTabRow": true,
-
-  "actions": [
-    { "command": { "action": "copy", "singleLine": false }, "keys": "ctrl+c" },
-    { "command": "paste", "keys": "ctrl+v" },
-    { "command": "find", "keys": "ctrl+shift+f" },
-
-    { "command": { "action": "splitPane", "split": "down" }, "keys": "ctrl+shift+h" },
-    { "command": { "action": "splitPane", "split": "right" }, "keys": "ctrl+shift+v" },
-    { "command": { "action": "splitPane", "split": "auto", "splitMode": "duplicate" }, "keys": "alt+shift+d" },
-
-    { "command": { "action": "moveFocus", "direction": "left" }, "keys": "alt+h" },
-    { "command": { "action": "moveFocus", "direction": "down" }, "keys": "alt+j" },
-    { "command": { "action": "moveFocus", "direction": "up" }, "keys": "alt+k" },
-    { "command": { "action": "moveFocus", "direction": "right" }, "keys": "alt+l" },
-
-    { "command": { "action": "resizePane", "direction": "left" }, "keys": "alt+shift+h" },
-    { "command": { "action": "resizePane", "direction": "down" }, "keys": "alt+shift+j" },
-    { "command": { "action": "resizePane", "direction": "up" }, "keys": "alt+shift+k" },
-    { "command": { "action": "resizePane", "direction": "right" }, "keys": "alt+shift+l" }
-  ],
-
-  "profiles": {
-    "defaults": {
-      "cursorShape": "filledBox",
-      "font": { "face": "JetBrainsMono Nerd Font" },
-      "opacity": 100,
-      "scrollbarState": "hidden",
-      "useAcrylic": true
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": [],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{395d2c9a-11b3-5223-b038-cc2ee1259659}",
+    "keybindings": 
+    [
+        {
+            "id": "Terminal.SplitPaneRight",
+            "keys": "ctrl+shift+v"
+        },
+        {
+            "id": "Terminal.CopyToClipboard",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "Terminal.PasteFromClipboard",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "Terminal.FindText",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "Terminal.SplitPaneDown",
+            "keys": "ctrl+shift+h"
+        },
+        {
+            "id": "Terminal.DuplicatePaneAuto",
+            "keys": "alt+shift+d"
+        },
+        {
+            "id": "Terminal.MoveFocusLeft",
+            "keys": "alt+h"
+        },
+        {
+            "id": "Terminal.MoveFocusDown",
+            "keys": "alt+j"
+        },
+        {
+            "id": "Terminal.MoveFocusUp",
+            "keys": "alt+k"
+        },
+        {
+            "id": "Terminal.MoveFocusRight",
+            "keys": "alt+l"
+        },
+        {
+            "id": "Terminal.ResizePaneLeft",
+            "keys": "alt+shift+h"
+        },
+        {
+            "id": "Terminal.ResizePaneDown",
+            "keys": "alt+shift+j"
+        },
+        {
+            "id": "Terminal.ResizePaneUp",
+            "keys": "alt+shift+k"
+        },
+        {
+            "id": "Terminal.ResizePaneRight",
+            "keys": "alt+shift+l"
+        }
+    ],
+    "launchMode": "focus",
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": 
+        {
+            "cursorShape": "filledBox",
+            "font": 
+            {
+                "face": "JetBrainsMono Nerd Font"
+            },
+            "opacity": 100,
+            "scrollbarState": "hidden",
+            "useAcrylic": true
+        },
+        "list": 
+        [
+            {
+              "guid": "{395d2c9a-11b3-5223-b038-cc2ee1259659}",
+              "hidden": false,
+              "name": "PowerShell 7",
+              "commandline": "pwsh.exe -nologo",
+              "startingDirectory": "%USERPROFILE%",
+              "icon": "ms-appx:///ProfileIcons/pwsh.png"
+            },
+            {
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell"
+            },
+            {
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt"
+            }
+        ]
     },
-    "list": [
-      {
-        "name": "PowerShell",
-        "source": "Windows.Terminal.PowershellCore"
-      },
-      {
-        "name": "Command Prompt",
-        "source": "Windows.Terminal.Wsl" 
-      }
-    ]
-  }
+    "schemes": [],
+    "themes": [],
+    "useAcrylicInTabRow": true
 }

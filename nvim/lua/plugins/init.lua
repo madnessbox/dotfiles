@@ -48,7 +48,7 @@ require("lazy").setup({
       config = function()
         require("nvim-autopairs").setup({})
       end,
-    }
+    },
 
     -- UI Improvements
     { 
