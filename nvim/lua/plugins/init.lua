@@ -41,6 +41,15 @@ require("lazy").setup({
         end,
     },
 
+    -- Auto pairs
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      config = function()
+        require("nvim-autopairs").setup({})
+      end,
+    }
+
     -- UI Improvements
     { 
         "nvim-lualine/lualine.nvim",
