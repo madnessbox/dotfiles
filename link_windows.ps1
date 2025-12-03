@@ -1,4 +1,5 @@
 $DotfilesRoot = "C:/dev/dotfiles"
+$ProfileDir = Split-Path $PROFILE -Parent
 
 $Links = @(
     @{ 
@@ -8,6 +9,10 @@ $Links = @(
     @{ 
         Source = "$DotfilesRoot/windows/powershell/Microsoft.PowerShell_profile.ps1"
         Target = $PROFILE
+    },
+    @{ 
+        Source = "$DotfilesRoot/windows/powershell/spaceship.omp.json"
+        Target = "$ProfileDir/spaceship.omp.json"
     },
     @{ 
         Source = "$DotfilesRoot/windows/terminal/settings.json"
