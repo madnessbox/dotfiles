@@ -1,6 +1,5 @@
-# PATH
-$env:PATH = [System.Environment]::GetEnvironmentVariable('PATH','User') + ';' +
-             [System.Environment]::GetEnvironmentVariable('PATH','Machine')
+#$env:PATH = [System.Environment]::GetEnvironmentVariable('PATH','User') + ';' +
+#             [System.Environment]::GetEnvironmentVariable('PATH','Machine')
 
 # Prompt
 Import-Module posh-git
