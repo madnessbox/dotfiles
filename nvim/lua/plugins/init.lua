@@ -1,100 +1,35 @@
-local lazy_path = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazy_path) then
-    vim.fn.system({
-        "git",
-        "clone",
-        "--filter=blob:none",
-        "https://github.com/folke/lazy.nvim.git",
-        lazy_path,
-    })
-end
-vim.opt.rtp:prepend(lazy_path)
+return {
+  {
+    "stevearc/conform.nvim",
+    -- event = 'BufWritePre', -- uncomment for format on save
+    opts = require "configs.conform",
+  },
 
-require("lazy").setup({
-    -- LSP / Mason
-    { "williamboman/mason.nvim", config = true },
-    { "williamboman/mason-lspconfig.nvim", dependencies = { "mason.nvim" } },
-    { "neovim/nvim-lspconfig" },
+  -- These are some examples, uncomment them if you want to see them work!
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require "configs.lspconfig"
+    end,
+  },
 
-    -- Telescope
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("plugins.telescope")
-        end,
-    },
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    cmd = "Trouble",
+    opts = {},
+  },
 
-    -- Treesitter
-    {
-        "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate",
-    },
+  -- test new blink
+  -- { import = "nvchad.blink.lazyspec" },
 
-    -- Nvim-Tree
-    {
-        "nvim-tree/nvim-tree.lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        config = function()
-            require("plugins.nvimtree")
-        end,
-    },
-
-    -- Auto pairs
-    {
-      "windwp/nvim-autopairs",
-      event = "InsertEnter",
-      config = function()
-        require("nvim-autopairs").setup({})
-      end,
-    },
-
-    -- cmake tools
-    { 
-        "Civitasv/cmake-tools.nvim", 
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("cmake-tools").setup({
-                cmake_command = "cmake",
-                cmake_build_directory = "build",
-                cmake_build_type = "Debug",
-                cmake_generate_options = {
-                    "-G", "Ninja",
-                    "-D", "CMAKE_C_COMPILER=clang",
-                    "-D", "CMAKE_CXX_COMPILER=clang++",
-                    "-D", "CMAKE_EXPORT_COMPILE_COMMANDS=ON",
-                },
-            })
-        end,
-    },
-
-    -- UI Improvements
-    { 
-        "nvim-lualine/lualine.nvim",
-        config = function()
-            require("plugins.lualine")
-        end,
-    },
-
-    { "folke/which-key.nvim", config = true },
-
-    { 
-        "catppuccin/nvim",
-        name = "catppuccin",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            require("catppuccin").setup({
-                flavour = "mocha",
-                transparent_background = true,
-                styles = {
-                    comments = { "italic" },
-                    conditionas = { "italic" },
-                },
-            })
-            vim.cmd.colorscheme("catppuccin")
-            vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-        end,
-    },
-})
+  -- {
+  -- 	"nvim-treesitter/nvim-treesitter",
+  -- 	opts = {
+  -- 		ensure_installed = {
+  -- 			"vim", "lua", "vimdoc",
+  --      "html", "css"
+  -- 		},
+  -- 	},
+  -- },
+}

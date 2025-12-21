@@ -82,17 +82,18 @@
             },
             "opacity": 100,
             "scrollbarState": "hidden",
+            "startingDirectory": "C:\\dev",
             "useAcrylic": true
         },
         "list": 
         [
             {
-              "guid": "{395d2c9a-11b3-5223-b038-cc2ee1259659}",
-              "hidden": false,
-              "name": "PowerShell 7",
-              "commandline": "pwsh.exe -nologo",
-              "startingDirectory": "%USERPROFILE%",
-              "icon": "ms-appx:///ProfileIcons/pwsh.png"
+                "commandline": "pwsh.exe -nologo",
+                "guid": "{395d2c9a-11b3-5223-b038-cc2ee1259659}",
+                "hidden": false,
+                "icon": "ms-appx:///ProfileIcons/pwsh.png",
+                "name": "PowerShell 7",
+                "startingDirectory": "C:\\dev"
             },
             {
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
